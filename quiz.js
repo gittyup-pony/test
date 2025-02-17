@@ -28,7 +28,6 @@ const results = [
     { title: "Sam Bankman-Fried", description: "You're a risk-taking entrepreneur in the crypto world.", image: "https://via.placeholder.com/150" }
 ];
 
-
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -47,7 +46,7 @@ function loadQuestion() {
     questionText.innerText = questions[currentQuestionIndex].question;
     optionsContainer.innerHTML = ""; // Clear previous options
 
-    // Update the page counter (e.g., "1/12")
+    // Update the page counter (e.g., "1/4")
     pageCounter.innerText = `Question ${currentQuestionIndex + 1} / ${questions.length}`;
 
     // Dynamically create radio buttons for all options
@@ -68,7 +67,7 @@ function loadQuestion() {
         optionsContainer.appendChild(label);
         optionsContainer.appendChild(br);
 
-        // Add event listener to enable "Next" button when an option is selected
+        // Enable "Next" button only when an option is selected
         radioBtn.addEventListener("change", () => {
             nextButton.disabled = false; 
         });
@@ -92,16 +91,28 @@ function showResult() {
     document.getElementById("question-container").style.display = "none";
     document.getElementById("result-container").style.display = "block";
 
-    const result = score >= 2 ? results[0] : results[1];
+    // Determine personality based on score
+    let result;
+    if (score >= 5) {
+        result = results[0]; // Vitalik
+    } else if (score >= 2) {
+        result = results[1]; // CZ
+    } else if (score >= -1) {
+        result = results[2]; // Satoshi
+    } else {
+        result = results[3]; // Sam Bankman-Fried
+    }
 
+    // Show result
     document.getElementById("result-title").innerText = result.title;
     document.getElementById("result-description").innerText = result.description;
     document.getElementById("result-image").src = result.image;
 
-    // Show restart button
+    // ✅ Show restart button
     document.getElementById("restart-btn").style.display = "block";
 }
 
+// ✅ `restartQuiz()` is now correctly placed outside `showResult()`
 function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
@@ -109,7 +120,14 @@ function restartQuiz() {
     document.getElementById("result-container").style.display = "none";
     document.getElementById("question-container").style.display = "block";
 
+    // ✅ Hide restart button when restarting
+    document.getElementById("restart-btn").style.display = "none";
+
+    // ✅ Ensure the "Next" button is disabled at the start
+    document.getElementById("next-btn").disabled = true;
+
     loadQuestion();
 }
 
+// Ensure the first question loads on page load
 window.onload = loadQuestion;
