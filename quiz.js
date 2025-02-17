@@ -128,6 +128,3 @@ function restartQuiz() {
 
     loadQuestion();
 }
-
-// Ensure the first question loads on page load
-window.onload = loadQuestion;
