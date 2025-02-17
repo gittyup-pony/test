@@ -137,14 +137,17 @@ function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
 
+    // ✅ Hide the result and quiz containers
     document.getElementById("result-container").style.display = "none";
-    document.getElementById("quiz-container").style.display = "block";
+    document.getElementById("quiz-container").style.display = "none";
 
-    // ✅ Hide restart button when restarting
+    // ✅ Show the introduction page again
+    document.getElementById("intro-container").style.display = "block";
+
+    // ✅ Hide the restart button again
     document.getElementById("restart-btn").style.display = "none";
 
     // ✅ Ensure the "Next" button is disabled at the start
     document.getElementById("next-btn").disabled = true;
-
-    loadQuestion();
 }
+
