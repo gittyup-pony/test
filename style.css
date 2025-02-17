@@ -1,62 +1,120 @@
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5d);
+    color: #fff;
     text-align: center;
-    background: #f4f4f4;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
+/* Quiz Container */
 #quiz-container {
-    width: 50%;
-    margin: 50px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
 }
 
-h1 {
-    font-size: 24px;
+/* Question Text */
+#question-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-#progress-bar {
-    height: 10px;
-    background: #ddd;
-    width: 100%;
-    border-radius: 5px;
-    margin: 10px 0;
-    position: relative;
+/* Page Counter */
+#page-counter {
+    font-size: 14px;
+    color: #b0b0b0;
+    margin-bottom: 10px;
 }
 
-#progress-fill {
-    height: 10px;
-    background: #6200ea;
-    width: 0%;
-    border-radius: 5px;
-    transition: width 0.3s ease-in-out;
+/* Options */
+#options-container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
+input[type="radio"] {
+    display: none; /* Hide the default radio button */
+}
+
+/* Custom Radio Buttons */
+label {
+    display: flex;
+    align-items: center;
+    background: #444;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+label:hover {
+    background: #555;
+}
+
+/* Custom Checked Effect */
+input[type="radio"]:checked + label {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+/* Buttons */
 button {
-    background: #6200ea;
+    background: #007bff;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 18px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: 0.3s;
 }
 
-button:hover {
-    background: #5a00d2;
+button:disabled {
+    background: #444;
+    cursor: not-allowed;
 }
 
+button:hover:not(:disabled) {
+    background: #0056b3;
+}
+
+/* Result Container */
 #result-container {
     display: none;
     text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
 }
 
-#result-container img {
+/* Result Image */
+#result-image {
     width: 150px;
-    height: auto;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+/* Restart Button */
+#restart-btn {
+    display: none;
     margin-top: 20px;
 }
