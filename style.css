@@ -135,3 +135,33 @@ button:hover:not(:disabled) {
 #restart-btn:hover {
     background: #0056b3;
 }
+/* Center the intro page */
+#intro-container {
+    text-align: center;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    margin: auto;
+}
+
+/* Style the start button */
+#start-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+#start-btn:hover {
+    background: #218838;
+}
+
