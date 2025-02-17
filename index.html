@@ -7,24 +7,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="quiz-container">
+
+    <!-- ✅ Introduction Page -->
+    <div id="intro-container">
+        <h1>Which Crypto Founder Are You?</h1>
+        <p>Take this quiz to find out which crypto founder matches your personality!</p>
+        
+        <!-- Introduction GIF -->
+        <img id="intro-gif" src="https://media.giphy.com/media/J2d2aZrccmHBu/giphy.gif" alt="Intro GIF" style="width: 100%; max-width: 400px; border-radius: 10px;">
+        
+        <!-- Start Quiz Button -->
+        <button id="start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- ✅ Quiz Container (Initially Hidden) -->
+    <div id="quiz-container" style="display: none;">
         <h1>Which Crypto Founder Are You?</h1>
         <p id="page-counter"></p>
+
         <div id="question-container">
             <p id="question-text"></p>
+            
+            <!-- ✅ Question Image -->
+            <img id="question-image" src="" alt="Question Image" style="width: 100%; max-height: 250px; object-fit: contain; display: none;">
+            
             <div id="options-container"></div>
             <button id="next-btn" onclick="nextQuestion()">Next</button>
         </div>
-      <div id="result-container" style="display: none;">
-    <h2 id="result-title"></h2>
-    <p id="result-description"></p>
-    <img id="result-image" src="" alt="Result Image">
-    
-    <!-- ✅ Restart Quiz button -->
-    <button id="restart-btn" onclick="restartQuiz()" style="display: none;">Restart Quiz</button>
-</div>
-        </div>
     </div>
+
+    <!-- ✅ Result Container (Initially Hidden) -->
+    <div id="result-container" style="display: none;">
+        <h2 id="result-title"></h2>
+        <p id="result-description"></p>
+        <img id="result-image" src="" alt="Result Image">
+        
+        <!-- Restart Quiz Button -->
+        <button id="restart-btn" onclick="restartQuiz()" style="display: none;">Restart Quiz</button>
+    </div>
+
     <script src="quiz.js"></script>
 </body>
 </html>
