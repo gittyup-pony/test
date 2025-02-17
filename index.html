@@ -28,11 +28,11 @@
         <div id="question-container">
             <p id="question-text"></p>
             
-            <!-- ✅ Question Image -->
+            <!-- ✅ Question Image (Dynamically Updates per Question) -->
             <img id="question-image" src="" alt="Question Image" style="width: 100%; max-height: 250px; object-fit: contain; display: none;">
             
             <div id="options-container"></div>
-            <button id="next-btn" onclick="nextQuestion()">Next</button>
+            <button id="next-btn" onclick="nextQuestion()" disabled>Next</button>
         </div>
     </div>
 
@@ -42,8 +42,8 @@
         <p id="result-description"></p>
         <img id="result-image" src="" alt="Result Image">
         
-        <!-- Restart Quiz Button -->
-        <button id="restart-btn" onclick="restartQuiz()" style="display: none;">Restart Quiz</button>
+        <!-- ✅ Restart Quiz Button -->
+        <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
     </div>
 
     <script src="quiz.js"></script>
