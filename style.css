@@ -12,33 +12,54 @@ body {
     height: 100vh;
 }
 
-/* Quiz Container */
-#quiz-container {
+/* ✅ Centered Containers */
+#intro-container, #quiz-container, #result-container {
     background: rgba(0, 0, 0, 0.8);
     padding: 30px;
     border-radius: 12px;
-    width: 80%;
+    width: 90%;
     max-width: 500px;
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
     text-align: center;
     transition: all 0.3s ease-in-out;
 }
 
-/* Question Text */
+/* ✅ Hide Containers Initially */
+#quiz-container, #result-container {
+    display: none;
+}
+
+/* ✅ Centering Images */
+img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* ✅ Question Text */
 #question-text {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* Page Counter */
+/* ✅ Page Counter */
 #page-counter {
     font-size: 14px;
     color: #b0b0b0;
     margin-bottom: 10px;
 }
 
-/* Options */
+/* ✅ Question Image */
+#question-image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    display: none; /* Hidden until a question loads */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* ✅ Options Styling */
 #options-container {
     text-align: left;
     display: flex;
@@ -46,11 +67,12 @@ body {
     gap: 10px;
 }
 
+/* Hide default radio buttons */
 input[type="radio"] {
-    display: none; /* Hide the default radio button */
+    display: none;
 }
 
-/* Custom Radio Buttons */
+/* ✅ Custom Radio Button Styling */
 label {
     display: flex;
     align-items: center;
@@ -62,18 +84,19 @@ label {
     font-size: 16px;
 }
 
+/* ✅ Hover Effect */
 label:hover {
     background: #555;
 }
 
-/* Custom Checked Effect */
+/* ✅ Checked Effect */
 input[type="radio"]:checked + label {
     background: #007bff;
     color: white;
     font-weight: bold;
 }
 
-/* Buttons */
+/* ✅ Buttons */
 button {
     background: #007bff;
     color: white;
@@ -86,82 +109,39 @@ button {
     transition: 0.3s;
 }
 
+/* Disabled button */
 button:disabled {
     background: #444;
     cursor: not-allowed;
 }
 
+/* Button Hover Effect */
 button:hover:not(:disabled) {
     background: #0056b3;
 }
 
-/* Result Container */
-#result-container {
-    display: none;
-    text-align: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 12px;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease-in-out;
-}
-
-/* Result Image */
-#result-image {
-    width: 150px;
-    border-radius: 50%;
-    margin-top: 10px;
-}
-
-/* Restart Button */
+/* ✅ Restart Button */
 #restart-btn {
-    display: none; /* Initially hidden */
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-    transition: 0.3s;
-    
-    /* Centering */
-    display: block;
-    margin: 20px auto; /* Centers it horizontally */
-    text-align: center;
-}
-
-#restart-btn:hover {
-    background: #0056b3;
-}
-/* Center the intro page */
-#intro-container {
-    text-align: center;
-    padding: 40px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-    margin: auto;
-}
-
-/* Style the start button */
-#start-btn {
+    display: none;
     background: #28a745;
     color: white;
-    border: none;
     padding: 12px 18px;
     border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 18px;
     margin-top: 20px;
     transition: 0.3s;
 }
 
-#start-btn:hover {
+/* ✅ Restart Button Hover */
+#restart-btn:hover {
     background: #218838;
 }
 
+/* ✅ Responsive Styles */
+@media (max-width: 600px) {
+    #intro-container, #quiz-container, #result-container {
+        width: 95%;
+        padding: 20px;
+    }
+}
