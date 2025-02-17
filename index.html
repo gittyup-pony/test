@@ -15,10 +15,14 @@
             <div id="options-container"></div>
             <button id="next-btn" onclick="nextQuestion()">Next</button>
         </div>
-        <div id="result-container" style="display:none;">
-            <h2 id="result-title"></h2>
-            <p id="result-description"></p>
-            <img id="result-image" src="" alt="Result Image">
+      <div id="result-container" style="display: none;">
+    <h2 id="result-title"></h2>
+    <p id="result-description"></p>
+    <img id="result-image" src="" alt="Result Image">
+    
+    <!-- ✅ Restart Quiz button -->
+    <button id="restart-btn" onclick="restartQuiz()" style="display: none;">Restart Quiz</button>
+</div>
         </div>
     </div>
     <script src="quiz.js"></script>
