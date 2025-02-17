@@ -1,33 +1,33 @@
 const questions = [
     { 
         question: "Do you prefer decentralization over efficiency?", 
-        options: ["Yes", "No"], 
-        scores: [1, 0] 
+        options: ["Strongly Prefer Decentralization", "Somewhat Prefer Decentralization", "Neutral", "Somewhat Prefer Efficiency", "Strongly Prefer Efficiency"], 
+        scores: [2, 1, 0, -1, -2] 
     },
     { 
         question: "Are you more of a developer or a businessman?", 
-        options: ["Developer", "Businessman"], 
-        scores: [1, 0] 
+        options: ["Full-Time Developer", "Part-Time Developer", "Balanced", "Part-Time Businessman", "Full-Time Businessman"], 
+        scores: [2, 1, 0, -1, -2] 
     },
     { 
         question: "Do you embrace regulation or avoid it?", 
-        options: ["Embrace", "Avoid"], 
-        scores: [0, 1] 
+        options: ["Fully Embrace", "Mostly Embrace", "Neutral", "Mostly Avoid", "Completely Avoid"], 
+        scores: [-2, -1, 0, 1, 2] 
+    },
+    { 
+        question: "What’s your approach to funding?", 
+        options: ["ICO / Token Sale", "Venture Capital", "Self-Funded", "Crowdfunding", "Grant-based"], 
+        scores: [2, 1, 0, -1, -2] 
     }
 ];
 
 const results = [
-    { 
-        title: "Vitalik Buterin", 
-        description: "You're a visionary developer who values decentralization.", 
-        image: "https://via.placeholder.com/150" 
-    },
-    { 
-        title: "CZ (Changpeng Zhao)", 
-        description: "You're a business-minded leader who values efficiency.", 
-        image: "https://via.placeholder.com/150" 
-    }
+    { title: "Vitalik Buterin", description: "You're a visionary developer who values decentralization.", image: "https://via.placeholder.com/150" },
+    { title: "CZ (Changpeng Zhao)", description: "You're a business-minded leader who values efficiency.", image: "https://via.placeholder.com/150" },
+    { title: "Satoshi Nakamoto", description: "You're an enigmatic and decentralized thinker.", image: "https://via.placeholder.com/150" },
+    { title: "Sam Bankman-Fried", description: "You're a risk-taking entrepreneur in the crypto world.", image: "https://via.placeholder.com/150" }
 ];
+
 
 let currentQuestionIndex = 0;
 let score = 0;
