@@ -1,23 +1,38 @@
+function startQuiz() {
+    // Hide the intro page
+    document.getElementById("intro-container").style.display = "none";
+
+    // Show the quiz container
+    document.getElementById("quiz-container").style.display = "block";
+
+    // Load the first question
+    loadQuestion();
+}
+
 const questions = [
     { 
         question: "Do you prefer decentralization over efficiency?", 
         options: ["Strongly Prefer Decentralization", "Somewhat Prefer Decentralization", "Neutral", "Somewhat Prefer Efficiency", "Strongly Prefer Efficiency"], 
-        scores: [2, 1, 0, -1, -2] 
+        scores: [2, 1, 0, -1, -2],
+        image: "https://raw.githubusercontent.com/your-username/your-repo/main/images/decentralization.gif" // Example
     },
     { 
         question: "Are you more of a developer or a businessman?", 
         options: ["Full-Time Developer", "Part-Time Developer", "Balanced", "Part-Time Businessman", "Full-Time Businessman"], 
-        scores: [2, 1, 0, -1, -2] 
+        scores: [2, 1, 0, -1, -2],
+        image: "https://raw.githubusercontent.com/your-username/your-repo/main/images/developer.gif"
     },
     { 
         question: "Do you embrace regulation or avoid it?", 
         options: ["Fully Embrace", "Mostly Embrace", "Neutral", "Mostly Avoid", "Completely Avoid"], 
-        scores: [-2, -1, 0, 1, 2] 
+        scores: [-2, -1, 0, 1, 2],
+        image: "https://raw.githubusercontent.com/your-username/your-repo/main/images/regulation.gif"
     },
     { 
         question: "What’s your approach to funding?", 
         options: ["ICO / Token Sale", "Venture Capital", "Self-Funded", "Crowdfunding", "Grant-based"], 
-        scores: [2, 1, 0, -1, -2] 
+        scores: [2, 1, 0, -1, -2],
+        image: "https://raw.githubusercontent.com/your-username/your-repo/main/images/funding.gif"
     }
 ];
 
@@ -35,6 +50,7 @@ function loadQuestion() {
     const questionText = document.getElementById("question-text");
     const optionsContainer = document.getElementById("options-container");
     const pageCounter = document.getElementById("page-counter");
+    const questionImage = document.getElementById("question-image");
     const nextButton = document.getElementById("next-btn");
 
     if (currentQuestionIndex >= questions.length) {
@@ -48,6 +64,10 @@ function loadQuestion() {
 
     // Update the page counter (e.g., "1/4")
     pageCounter.innerText = `Question ${currentQuestionIndex + 1} / ${questions.length}`;
+
+    // ✅ Update question image dynamically
+    questionImage.src = questions[currentQuestionIndex].image;
+    questionImage.style.display = "block"; // Make sure it appears
 
     // Dynamically create radio buttons for all options
     questions[currentQuestionIndex].options.forEach((option, index) => {
@@ -88,7 +108,7 @@ function nextQuestion() {
 }
 
 function showResult() {
-    document.getElementById("question-container").style.display = "none";
+    document.getElementById("quiz-container").style.display = "none";
     document.getElementById("result-container").style.display = "block";
 
     // Determine personality based on score
@@ -118,7 +138,7 @@ function restartQuiz() {
     score = 0;
 
     document.getElementById("result-container").style.display = "none";
-    document.getElementById("question-container").style.display = "block";
+    document.getElementById("quiz-container").style.display = "block";
 
     // ✅ Hide restart button when restarting
     document.getElementById("restart-btn").style.display = "none";
