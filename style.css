@@ -115,16 +115,21 @@ button:hover:not(:disabled) {
 
 /* Restart Button */
 #restart-btn {
-    display: none;
+    display: none; /* Initially hidden */
     background: #007bff;
     color: white;
     border: none;
-    padding: 18px 18px;
+    padding: 12px 18px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px;
     transition: 0.3s;
+    
+    /* Centering */
+    display: block;
+    margin: 20px auto; /* Centers it horizontally */
+    text-align: center;
 }
 
 #restart-btn:hover {
