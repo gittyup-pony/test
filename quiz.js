@@ -6,7 +6,7 @@ function startQuiz() {
 
 const questions = [
     { 
-        question: "While walking home, dark clouds gather and you can hear thunder in the distance. Within seconds, rain starts to pour and you look frantically in your bag for your trusty umbrella, but realise you left it at work. How to you react?",
+        question: "While walking home, dark clouds gather and you can hear thunder in the distance. Within seconds, rain starts to pour and you look frantically in your bag for your trusty umbrella, but realise you left it at work. How do you react?",
         options: ["Crash out, then start hauling ass to anywhere but here", "Shrug and consider yourself unlucky and start looking for shelter."],
         scores: { guanYin: 2, buddha: 1, changEr: 2, erLang: 1, nezha: 2, wukong: 1, guanGong: 2, caiShenYe: 1 }
     },
@@ -16,7 +16,7 @@ const questions = [
         scores: { guanYin: 1, buddha: 2, changEr: 2, erLang: 1, nezha: 1, wukong: 2, guanGong: 2, caiShenYe: 1 }
     },
     { 
-        question: "Before you can act, you realise that your surroundings look different. It appears you're in some kind of a ancient kingdom. You're thinking:",
+        question: "Before you can act, you realise that your surroundings look different. It appears you're in some kind of ancient kingdom. You're thinking:",
         options: ["Fuck, I must be dead. Why does heaven look like this?", "This is a hallucination, I must've hit my head pretty hard."],
         scores: { guanYin: 1, buddha: 1, changEr: 1, erLang: 1, nezha: 2, wukong: 2, guanGong: 2, caiShenYe: 2 }
     },
@@ -26,17 +26,17 @@ const questions = [
         scores: { guanYin: 2, buddha: 2, changEr: 2, erLang: 2, nezha: 1, wukong: 1, guanGong: 1, caiShenYe: 1 }
     },
     { 
-        question: "The big frog introduces himself as Frog-derick, the Frog General. He escorts you to the war room asks how you can contribute to their efforts. How do you respond?",
+        question: "The big frog introduces himself as Frog-derick, the Frog General. He escorts you to the war room and asks how you can contribute to their efforts. How do you respond?",
         options: ["I wanna throw hands. Point me to the flies", "I can help in other ways. I know CPR."],
         scores: { guanYin: 1, buddha: 2, changEr: 1, erLang: 2, nezha: 1, wukong: 2, guanGong: 1, caiShenYe: 2 }
     },
     { 
-        question: "Before sending you out to the battlefield, Frog-derick wants equip you with a weapon so you can defend yourself. Which weapon do you pick?",
+        question: "Before sending you out to the battlefield, Frog-derick wants to equip you with a weapon so you can defend yourself. Which weapon do you pick?",
         options: ["The insect repellant, so the flies keep away", "The electric fly swatter so you go on the offense."],
         scores: { guanYin: 1, buddha: 1, changEr: 1, erLang: 1, nezha: 2, wukong: 2, guanGong: 2, caiShenYe: 2 }
     },
     { 
-        question: "As you enter the battlefield, the Lord of the Flies sese you and immediately surrenders due to your gigantic size. With the war won, Frog-derick grants you a wish as a reward. What do you want most?",
+        question: "As you enter the battlefield, the Lord of the Flies sees you and immediately surrenders due to your gigantic size. With the war won, Frog-derick grants you a wish as a reward. What do you want most?",
         options: ["A magic bag that always has what you need", "An umbrella that doubles as a sword when you need it."],
         scores: { guanYin: 2, buddha: 2, changEr: 2, erLang: 2, nezha: 1, wukong: 1, guanGong: 1, caiShenYe: 1 }
     },
@@ -50,16 +50,43 @@ const questions = [
 let scores = { guanYin: 0, nezha: 0, wukong: 0, buddha: 0, changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 };
 let currentQuestionIndex = 0;
 
+function loadQuestion() {
+    if (currentQuestionIndex >= questions.length) {
+        showResult();
+        return;
+    }
+
+    let currentQ = questions[currentQuestionIndex];
+    document.getElementById("question-text").innerText = currentQ.question;
+    document.getElementById("label0").innerText = currentQ.options[0];
+    document.getElementById("label1").innerText = currentQ.options[1];
+    document.getElementById("page-counter").innerText = `Question ${currentQuestionIndex + 1} / ${questions.length}`;
+
+    document.querySelectorAll('input[name="answer"]').forEach(input => {
+        input.checked = false;
+    });
+
+    document.getElementById("next-btn").disabled = true;
+}
+
 function nextQuestion() {
     const selectedOption = document.querySelector('input[name="answer"]:checked');
     if (selectedOption) {
         let choiceIndex = parseInt(selectedOption.value);
         let currentQ = questions[currentQuestionIndex];
         Object.keys(currentQ.scores).forEach(persona => {
-            if (choiceIndex === 0) scores[persona] += currentQ.scores[persona] === 1 ? 1 : 0;
-            else scores[persona] += currentQ.scores[persona] === 2 ? 1 : 0;
+            scores[persona] += choiceIndex === 0 ? currentQ.scores[persona] : 0;
         });
         currentQuestionIndex++;
         loadQuestion();
     }
+}
+
+function showResult() {
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("result-container").style.display = "block";
+
+    let highestPersona = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+    document.getElementById("result-title").innerText = highestPersona;
+    document.getElementById("result-description").innerText = `You are most like ${highestPersona}!`;
 }
