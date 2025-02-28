@@ -1,6 +1,8 @@
 function startQuiz() {
     document.getElementById("intro-container").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
+    currentQuestionIndex = 0;
+    scores = { guanYin: 0, nezha: 0, wukong: 0, buddha: 0, changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 };
     loadQuestion();
 }
 
@@ -24,26 +26,6 @@ const questions = [
         question: "In the midst of your thoughts, the biggest frog suddenly croaks to the others that the prophecy has come true: a weird-looking immortal frog has come to help them win their war against the flies! How do you react?",
         options: ["Protest the war and take issue about the weird-looking comment.", "Agree and start boasting about how you can take on any fly."],
         scores: { guanYin: 2, buddha: 2, changEr: 2, erLang: 2, nezha: 1, wukong: 1, guanGong: 1, caiShenYe: 1 }
-    },
-    { 
-        question: "The big frog introduces himself as Frog-derick, the Frog General. He escorts you to the war room and asks how you can contribute to their efforts. How do you respond?",
-        options: ["I wanna throw hands. Point me to the flies", "I can help in other ways. I know CPR."],
-        scores: { guanYin: 1, buddha: 2, changEr: 1, erLang: 2, nezha: 1, wukong: 2, guanGong: 1, caiShenYe: 2 }
-    },
-    { 
-        question: "Before sending you out to the battlefield, Frog-derick wants to equip you with a weapon so you can defend yourself. Which weapon do you pick?",
-        options: ["The insect repellant, so the flies keep away", "The electric fly swatter so you go on the offense."],
-        scores: { guanYin: 1, buddha: 1, changEr: 1, erLang: 1, nezha: 2, wukong: 2, guanGong: 2, caiShenYe: 2 }
-    },
-    { 
-        question: "As you enter the battlefield, the Lord of the Flies sees you and immediately surrenders due to your gigantic size. With the war won, Frog-derick grants you a wish as a reward. What do you want most?",
-        options: ["A magic bag that always has what you need", "An umbrella that doubles as a sword when you need it."],
-        scores: { guanYin: 2, buddha: 2, changEr: 2, erLang: 2, nezha: 1, wukong: 1, guanGong: 1, caiShenYe: 1 }
-    },
-    { 
-        question: "You celebrate with your frog buddies, but during the festivities you drink a bit too much and fall asleep. When you wake up, you find yourself back at the longkang and no frogs in sight. Your head hurts, but what could be the reason?",
-        options: ["Must have hit my head after falling and had a dream while knocked out.", "I drank too much at the frog party and I'm having a terrible hangover."],
-        scores: { guanYin: 2, buddha: 1, changEr: 1, erLang: 2, nezha: 2, wukong: 1, guanGong: 1, caiShenYe: 2 }
     }
 ];
 
@@ -62,24 +44,40 @@ function loadQuestion() {
     document.getElementById("label1").innerText = currentQ.options[1];
     document.getElementById("page-counter").innerText = `Question ${currentQuestionIndex + 1} / ${questions.length}`;
 
-    document.querySelectorAll('input[name="answer"]').forEach(input => {
+    let radioButtons = document.querySelectorAll('input[name="answer"]');
+    
+    // ✅ Clear previous selections
+    radioButtons.forEach(input => {
         input.checked = false;
     });
 
+    // ✅ Disable "Next" button until an option is selected
     document.getElementById("next-btn").disabled = true;
+
+    // ✅ Add event listener to enable "Next" button when an option is selected
+    radioButtons.forEach(input => {
+        input.addEventListener("change", () => {
+            document.getElementById("next-btn").disabled = false;
+        });
+    });
 }
 
 function nextQuestion() {
     const selectedOption = document.querySelector('input[name="answer"]:checked');
-    if (selectedOption) {
-        let choiceIndex = parseInt(selectedOption.value);
-        let currentQ = questions[currentQuestionIndex];
-        Object.keys(currentQ.scores).forEach(persona => {
-            scores[persona] += choiceIndex === 0 ? currentQ.scores[persona] : 0;
-        });
-        currentQuestionIndex++;
-        loadQuestion();
-    }
+    if (!selectedOption) return; // ✅ Prevents errors if nothing is selected
+
+    let choiceIndex = parseInt(selectedOption.value);
+    let currentQ = questions[currentQuestionIndex];
+
+    // ✅ Add scores based on choice
+    Object.keys(currentQ.scores).forEach(persona => {
+        if (choiceIndex === 0) {
+            scores[persona] += currentQ.scores[persona];
+        }
+    });
+
+    currentQuestionIndex++;
+    loadQuestion();
 }
 
 function showResult() {
@@ -87,6 +85,20 @@ function showResult() {
     document.getElementById("result-container").style.display = "block";
 
     let highestPersona = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+    
+    // ✅ Update the result title & description
     document.getElementById("result-title").innerText = highestPersona;
     document.getElementById("result-description").innerText = `You are most like ${highestPersona}!`;
+
+    // ✅ Ensure Restart Button is visible
+    document.getElementById("restart-btn").style.display = "block";
+}
+
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    scores = { guanYin: 0, nezha: 0, wukong: 0, buddha: 0, changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 };
+
+    document.getElementById("result-container").style.display = "none";
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("intro-container").style.display = "block";
 }
