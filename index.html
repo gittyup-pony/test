@@ -3,46 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Which Crypto Founder Are You?</title>
+    <title>Which Persona Are You?</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- ✅ Introduction Page -->
     <div id="intro-container">
-        <h1>Which Crypto Founder Are You?</h1>
-        <p>Take this quiz to find out which crypto founder matches your personality!</p>
-        
-        <!-- Introduction GIF -->
-        <img id="intro-gif" src="https://github.com/gittyup-pony/test/blob/main/frog.gif?raw=true" alt="Intro GIF" style="width: 100%; max-width: 400px; border-radius: 10px;">
-        
-        <!-- Start Quiz Button -->
+        <h1>Which Persona Are You?</h1>
+        <p>Find out which legendary figure best matches your personality!</p>
+        <img id="intro-gif" src="https://media.giphy.com/media/J2d2aZrccmHBu/giphy.gif" alt="Intro GIF">
         <button id="start-btn" onclick="startQuiz()">Start Quiz</button>
     </div>
 
-    <!-- ✅ Quiz Container (Initially Hidden) -->
+    <!-- ✅ Quiz Section (Initially Hidden) -->
     <div id="quiz-container" style="display: none;">
-        <h1>Which Crypto Founder Are You?</h1>
+        <h1>Which Persona Are You?</h1>
         <p id="page-counter"></p>
+        
+        <p id="question-text"></p>
 
-        <div id="question-container">
-            <p id="question-text"></p>
-            
-            <!-- ✅ Question Image (Dynamically Updates per Question) -->
-            <img id="question-image" src="" alt="Question Image" style="width: 100%; max-height: 250px; object-fit: contain; display: none;">
-            
-            <div id="options-container"></div>
-            <button id="next-btn" onclick="nextQuestion()" disabled>Next</button>
+        <div id="options-container">
+            <input type="radio" id="option0" name="answer" value="0">
+            <label for="option0" id="label0"></label><br>
+
+            <input type="radio" id="option1" name="answer" value="1">
+            <label for="option1" id="label1"></label><br>
         </div>
+
+        <button id="next-btn" onclick="nextQuestion()" disabled>Next</button>
     </div>
 
-    <!-- ✅ Result Container (Initially Hidden) -->
+    <!-- ✅ Results Section (Initially Hidden) -->
     <div id="result-container" style="display: none;">
         <h2 id="result-title"></h2>
         <p id="result-description"></p>
         <img id="result-image" src="" alt="Result Image">
-        
-        <!-- ✅ Restart Quiz Button -->
         <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
     </div>
 
