@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Which Celestial Frog Are You?</title>
+    <title>Which Persona Are You?</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- ✅ Introduction Page -->
     <div id="intro-container">
-        <h1>Which Celestial Frog Are You?</h1>
-        <p>Find out which legendary frog best matches your personality!</p>
+        <h1>Which Persona Are You?</h1>
+        <p>Find out which legendary figure best matches your personality!</p>
         <img id="intro-gif" src="https://media.giphy.com/media/J2d2aZrccmHBu/giphy.gif" alt="Intro GIF">
         <button id="start-btn" onclick="startQuiz()">Start Quiz</button>
     </div>
 
     <!-- ✅ Quiz Section (Initially Hidden) -->
     <div id="quiz-container" style="display: none;">
-        <h1>Which Celestial Frog Are You?</h1>
+        <h1>Which Persona Are You?</h1>
         <p id="page-counter"></p>
-        
+
+        <!-- ✅ GIF for each question -->
+        <img id="question-gif" src="" alt="Question GIF" style="width: 100%; max-height: 250px; object-fit: contain; display: none;">
+
         <p id="question-text"></p>
 
         <div id="options-container">
@@ -30,8 +33,6 @@
             <input type="radio" id="option1" name="answer" value="1">
             <label for="option1" id="label1"></label><br>
         </div>
-
-        <button id="next-btn" onclick="nextQuestion()" disabled>Next</button>
     </div>
 
     <!-- ✅ Results Section (Initially Hidden) -->
