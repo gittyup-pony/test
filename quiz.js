@@ -54,6 +54,11 @@ const questions = [
         options: ["A magic bag that always has what you need", "An umbrella that doubles as a sword when you need it."],
         gif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
         scores: { guanYin: 6, nezha: 4, wukong: 1, buddha: 2, changEr: 8, erLang: 7, guanGong: 5, caiShenYe: 3 }
+        
+        question: "You celebrate with your frog buddies, but during the festivities you drink a bit too much and fall asleep. When you wake up, you find yourself back at the longkang and no frogs in sight. Your head hurts, but what could be the reason?",
+        options: ["Must have hit my head after falling and had a dream while knocked out.", "I drank too much at the frog party and I'm having a terrible hangover."],
+        gif: "https://media.giphy.com/media/3o7bu9EIZKk8v8YInm/giphy.gif",
+        scores: [0, 1] 
     }
 ];
 
