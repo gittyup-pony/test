@@ -83,18 +83,22 @@ function loadQuestion() {
     questionGif.src = currentQ.gif;
     questionGif.style.display = "block";
 
-    let radioButtons = document.querySelectorAll('input[name="answer"]');
-    
-    radioButtons.forEach((input, i) => {
-        input.checked = false;
-        input.onclick = () => nextQuestion(i);
+   let optionsContainer = document.getElementById("options-container");
+    optionsContainer.innerHTML = ""; // Clear previous buttons
+
+    // ✅ Dynamically create buttons
+    currentQ.options.forEach((option, index) => {
+        let btn = document.createElement("button");
+        btn.innerText = option;
+        btn.onclick = () => nextQuestion(index);
+        optionsContainer.appendChild(btn);
     });
 }
 
 function nextQuestion(choiceIndex) {
     let currentQ = questions[currentQuestionIndex];
 
-    // ✅ Original way of tabulating scores
+    // ✅ Tabulate scores
     Object.keys(scores).forEach((persona, index) => {
         scores[persona] += currentQ.scores[choiceIndex];
     });
