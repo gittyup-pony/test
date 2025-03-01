@@ -1,80 +1,60 @@
-/* General Page Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #3a3a5d);
-    color: #fff;
     text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    background-color: #111;
+    color: white;
 }
 
-/* Containers */
-#intro-container, #quiz-container, #result-container {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 30px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Hide Containers Initially */
-#quiz-container, #result-container {
-    display: none;
-}
-
-/* Buttons */
 button {
-    background: #007bff;
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 10px auto;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
     color: white;
     border: none;
-    padding: 12px 18px;
-    border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-    transition: 0.3s;
+    transition: transform 0.2s ease, background 0.3s ease;
 }
 
-button:disabled {
-    background: #444;
-    cursor: not-allowed;
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #ff6f61, #ff914d);
 }
 
-button:hover:not(:disabled) {
-    background: #0056b3;
+button:active {
+    transform: scale(0.95);
 }
 
-/* Restart Button */
-#restart-btn {
+#options-container button {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+#options-container button:hover {
+    background: linear-gradient(to right, #5a00c5, #1c6ef2);
+}
+
+#question-gif {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-bottom: 20px;
     display: none;
-    background: #28a745;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s;
-    text-align: center;
-    display: block;
 }
 
-#restart-btn:hover {
-    background: #218838;
+#intro-container, #quiz-container, #result-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    #intro-container, #quiz-container, #result-container {
-        width: 95%;
-        padding: 20px;
-    }
+#restart-btn {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
 }
