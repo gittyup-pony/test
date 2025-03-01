@@ -30,8 +30,39 @@ const questions = [
         options: ["Fuck, I must be dead. Why does heaven look like this?", "This is a hallucination, I must've hit my head pretty hard."],
         gif: "https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif",
         scores: [0, 1] 
+    },
+    { 
+        question: "In the midst of your thoughts, the biggest frog suddenly croaks to the others that the prophecy has come true: a weird-looking immortal frog has come to help them win their war against the flies! How do you react?",
+        options: ["Protest the war and take issue about the weird-looking comment.", "Agree and start boasting about how you can take on any fly."],
+        gif: "https://media.giphy.com/media/Q81NcsY6YxK7jxnr4v/giphy.gif",
+        scores: [1, 0] 
+    },
+    { 
+        question: "The big frog introduces himself as Frog-derick, the Frog General. He escorts you to the war room asks how you can contribute to their efforts. How do you respond?",
+        options: ["I wanna throw hands. Point me to the flies", "I can help in other ways. I know CPR."],
+        gif: "https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif",
+        scores: [0, 1] 
+    },
+    { 
+        question: "Before sending you out to the battlefield, Frog-derick wants equip you with a weapon so you can defend yourself. Which weapon do you pick?",
+        options: ["The insect repellant, so the flies keep away", "The electric fly swatter so you go on the offense."],
+        gif: "https://media.giphy.com/media/5VKbvrjxpVJCM/giphy.gif",
+        scores: [1, 0] 
+    },
+    { 
+        question: "As you enter the battlefield, the Lord of the Flies sees you and immediately surrenders due to your gigantic size. With the war won, Frog-derick grants you a wish as a reward. What do you want most?",
+        options: ["A magic bag that always has what you need", "An umbrella that doubles as a sword when you need it."],
+        gif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
+        scores: [1, 0] 
+    },
+    { 
+        question: "You celebrate with your frog buddies, but during the festivities you drink a bit too much and fall asleep. When you wake up, you find yourself back at the longkang and no frogs in sight. Your head hurts, but what could be the reason?",
+        options: ["Must have hit my head after falling and had a dream while knocked out.", "I drank too much at the frog party and I'm having a terrible hangover."],
+        gif: "https://media.giphy.com/media/3o7bu9EIZKk8v8YInm/giphy.gif",
+        scores: [0, 1] 
     }
 ];
+
 
 let scores = { guanYin: 0, nezha: 0, wukong: 0, buddha: 0, changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 };
 let currentQuestionIndex = 0;
