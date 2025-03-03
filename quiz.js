@@ -75,14 +75,6 @@ const questions = [
             { guanYin: 49, nezha: 56, wukong: 53, buddha: 50, changEr: 52, erLang: 54, guanGong: 51, caiShenYe: 55 }, 
             { guanYin: 50, nezha: 55, wukong: 54, buddha: 51, changEr: 56, erLang: 53, guanGong: 52, caiShenYe: 49 }
         ]
-     },
-    {
-        question: "You celebrate with your frog buddies, but during the festivities you drink a bit too much and fall asleep. When you wake up, you find yourself back at the longkang and no frogs in sight. Your head hurts, but what could be the reason?",        
-        options: ["Must have hit my head after falling and had a dream while knocked out.", "I drank too much at the frog party and I'm having a terrible hangover."],
-        gif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
-        scores: [
-            { guanYin: 57, nezha: 60, wukong: 61, buddha: 58, changEr: 63, erLang: 59, guanGong: 64, caiShenYe: 62 }, 
-            { guanYin: 60, nezha: 58, wukong: 59, buddha: 61, changEr: 64, erLang: 57, guanGong: 62, caiShenYe: 63 }
     }
 ];
 
@@ -117,7 +109,7 @@ function loadQuestion() {
 function nextQuestion(choiceIndex) {
     let currentQ = questions[currentQuestionIndex];
 
-    let selectedScores = currentQ.scores[choiceIndex];
+    let selectedScores = currentQ.scores[choiceIndex] || {}; // ✅ Prevent crashes
     Object.keys(selectedScores).forEach((persona) => {
         scores[persona] += selectedScores[persona] || 0;
     });
@@ -142,8 +134,6 @@ function restartQuiz() {
     scores = { guanYin: 0, nezha: 0, wukong: 0, buddha: 0, changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 };
 
     document.getElementById("result-container").style.display = "none";
-    setTimeout(() => { 
-        document.getElementById("quiz-container").style.display = "block"; 
-        loadQuestion(); 
-    }, 500);
+    document.getElementById("intro-container").style.display = "block";
+    document.getElementById("restart-btn").style.display = "none";
 }
