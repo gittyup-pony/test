@@ -68,15 +68,16 @@ const questions = [
         ]
     },
     { 
-        question: "As you enter the battlefield, the Lord of the Flies sees you and immediately surrenders due to your gigantic size. With the war won, Frog-derick grants you a wish as a reward. What do you want most?",
-        options: ["A magic bag that always has what you need", "An umbrella that doubles as a sword when you need it."],
+        question: "You wake up back at the longkang. What do you think happened?",
+        options: ["Must have hit my head and dreamed everything.", "I drank too much at the frog party and now I have a hangover."],
         gif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
         scores: [
-            { guanYin: 49, nezha: 56, wukong: 53, buddha: 50, changEr: 52, erLang: 54, guanGong: 51, caiShenYe: 55 }, 
-            { guanYin: 50, nezha: 55, wukong: 54, buddha: 51, changEr: 56, erLang: 53, guanGong: 52, caiShenYe: 49 }
+            { guanYin: 50, nezha: 58, wukong: 53, buddha: 51, changEr: 56, erLang: 54, guanGong: 52, caiShenYe: 55 }, 
+            { guanYin: 55, nezha: 52, wukong: 56, buddha: 54, changEr: 53, erLang: 51, guanGong: 58, caiShenYe: 50 }
         ]
     }
 ];
+
 
 let scores = { guanYin: 0, nezha: 0, wukong: 0, buddha: 0, changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 };
 let currentQuestionIndex = 0;
