@@ -97,6 +97,50 @@ function loadQuestion() {
     questionGif.style.display = "block";
 
     let optionsContainer = document.getElementById("options-container");
+    optionsContainer.innerHTML = ""; // Clear previous buttons
+
+    currentQ.options.forEach((option, index) => {
+        let btn = document.createElement("button");
+        btn.innerText = option;
+        btn.onclick = () => nextQuestion(index);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+function nextQuestion(choiceIndex) {
+    let currentQ = questions[currentQuestionIndex];
+
+    Object.keys(scores).forEach((persona) => {
+        scores[persona] += currentQ.scores[choiceIndex][persona] || 0;
+    });
+
+    currentQuestionIndex++;
+    loadQuestion();
+}
+
+function showResult() {
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("result-container").style.display = "block";
+
+    let highestPersona = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+    document.getElementById("result-title").innerText = highestPersona;
+    document.getElementById("result-description").innerText = `You are most like ${highestPersona}!`;
+    document.getElementById("restart-btn").style.display = "block";
+}
+
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    scores = { guanYin: 0, nezha: 0, wukong: 0, buddha: 0, changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 };
+
+    document.getElementById("result-container").style.display = "none";
+    document.getElementById("intro-container").style.display = "block";
+    document.getElementById("restart-btn").style.display = "none";
+}
+    questionGif.src = currentQ.gif;
+    questionGif.style.display = "block";
+
+    let optionsContainer = document.getElementById("options-container");
     optionsContainer.innerHTML = "";
 
     currentQ.options.forEach((option, index) => {
