@@ -78,7 +78,6 @@ const questions = [
     }
 ];
 
-
 let scores = { guanYin: 0, nezha: 0, wukong: 0, buddha: 0, changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 };
 let currentQuestionIndex = 0;
 
@@ -147,7 +146,4 @@ function restartQuiz() {
 
     // ✅ Load first question again
     loadQuestion();
-
-    // ✅ Ensure the restart button is hidden until the next quiz ends
-    document.getElementById("restart-btn").style.display = "none";
 }
