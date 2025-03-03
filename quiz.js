@@ -112,3 +112,21 @@ function showResult() {
     document.getElementById("result-description").innerText = `You are most like ${highestPersona}!`;
     document.getElementById("restart-btn").style.display = "block";
 }
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    
+    // ✅ Reset scores to prevent previous results from affecting the new quiz
+    scores = { 
+        guanYin: 0, nezha: 0, wukong: 0, buddha: 0, 
+        changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 
+    };
+
+    // ✅ Hide the result container
+    document.getElementById("result-container").style.display = "none";
+
+    // ✅ Show the intro page again
+    document.getElementById("intro-container").style.display = "block";
+
+    // ✅ Ensure the restart button is hidden until the next quiz ends
+    document.getElementById("restart-btn").style.display = "none";
+}
