@@ -41,7 +41,7 @@ const questions = [
         ]
     },
     { 
-        question: "The biggest frog suddenly croaks that the prophecy has come true: a weird-looking immortal frog has come to help them win their war against the flies! How do you react?",
+        question: "In the midst of your thoughts, the biggest frog suddenly croaks to the others that the prophecy has come true: a weird-looking immortal frog has come to help them win their war against the flies! How do you react?",
         options: ["Protest the war and take issue about the weird-looking comment.", "Agree and start boasting about how you can take on any fly."],
         gif: "https://media.giphy.com/media/Q81NcsY6YxK7jxnr4v/giphy.gif",
         scores: [
@@ -68,14 +68,24 @@ const questions = [
         ]
     },
     { 
-        question: "You wake up back at the longkang. What do you think happened?",
-        options: ["Must have hit my head and dreamed everything.", "I drank too much at the frog party and now I have a hangover."],
+        question: "As you enter the battlefield, the Lord of the Flies sees you and immediately surrenders due to your gigantic size. With the war won, Frog-derick grants you a wish as a reward. What do you want most?",
+        options: ["A magic bag that always has what you need", "An umbrella that doubles as a sword when you need it."],
         gif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
         scores: [
-            { guanYin: 50, nezha: 58, wukong: 53, buddha: 51, changEr: 56, erLang: 54, guanGong: 52, caiShenYe: 55 }, 
-            { guanYin: 55, nezha: 52, wukong: 56, buddha: 54, changEr: 53, erLang: 51, guanGong: 58, caiShenYe: 50 }
+            { guanYin: 49, nezha: 56, wukong: 53, buddha: 50, changEr: 52, erLang: 54, guanGong: 51, caiShenYe: 55 }, 
+            { guanYin: 50, nezha: 55, wukong: 54, buddha: 51, changEr: 56, erLang: 53, guanGong: 52, caiShenYe: 49 }
         ]
-    }
+    },
+    {
+    question: "You celebrate with your frog buddies, but during the festivities you drink a bit too much and fall asleep. When you wake up, you find yourself back at the longkang and no frogs in sight. Your head hurts, but what could be the reason?",        
+    options: ["Must have hit my head after falling and had a dream while knocked out.", "I drank too much at the frog party and I'm having a terrible hangover."],
+    gif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
+    scores: [
+        { guanYin: 57, nezha: 60, wukong: 61, buddha: 58, changEr: 63, erLang: 59, guanGong: 64, caiShenYe: 62 }, 
+        { guanYin: 60, nezha: 58, wukong: 59, buddha: 61, changEr: 64, erLang: 57, guanGong: 62, caiShenYe: 63 }
+    ]
+}
+
 ];
 
 
