@@ -38,13 +38,13 @@ const questions = [
         scores: { guanYin: 1, nezha: 3, wukong: 8, buddha: 2, changEr: 6, erLang: 4, guanGong: 7, caiShenYe: 5 }
     },
     { 
-        question: "The big frog introduces himself as Frog-derick, the Frog General. He escorts you to the war room asks how you can contribute to their efforts. How do you respond?",
+        question: "The big frog introduces himself as Frog-derick, the Frog General. He escorts you to the war room and asks how you can contribute to their efforts. How do you respond?",
         options: ["I wanna throw hands. Point me to the flies", "I can help in other ways. I know CPR."],
         gif: "https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif",
         scores: { guanYin: 6, nezha: 8, wukong: 4, buddha: 7, changEr: 5, erLang: 1, guanGong: 2, caiShenYe: 3 }
     },
     { 
-        question: "Before sending you out to the battlefield, Frog-derick wants equip you with a weapon so you can defend yourself. Which weapon do you pick?",
+        question: "Before sending you out to the battlefield, Frog-derick wants to equip you with a weapon so you can defend yourself. Which weapon do you pick?",
         options: ["The insect repellant, so the flies keep away", "The electric fly swatter so you go on the offense."],
         gif: "https://media.giphy.com/media/5VKbvrjxpVJCM/giphy.gif",
         scores: { guanYin: 5, nezha: 2, wukong: 3, buddha: 1, changEr: 7, erLang: 8, guanGong: 6, caiShenYe: 4 }
@@ -55,11 +55,11 @@ const questions = [
         gif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
         scores: { guanYin: 8, nezha: 7, wukong: 1, buddha: 3, changEr: 2, erLang: 5, guanGong: 4, caiShenYe: 6 }
     },
-    {     
+    { 
         question: "You celebrate with your frog buddies, but during the festivities you drink a bit too much and fall asleep. When you wake up, you find yourself back at the longkang and no frogs in sight. Your head hurts, but what could be the reason?",
         options: ["Must have hit my head after falling and had a dream while knocked out.", "I drank too much at the frog party and I'm having a terrible hangover."],
         gif: "https://media.giphy.com/media/3o7bu9EIZKk8v8YInm/giphy.gif",
-        scores: [guanYin: 4, nezha: 6, wukong: 2, buddha: 5, changEr: 8, erLang: 3, guanGong: 1, caiShenYe: 7] 
+        scores: { guanYin: 4, nezha: 6, wukong: 2, buddha: 5, changEr: 8, erLang: 3, guanGong: 1, caiShenYe: 7 } 
     }
 ];
 
@@ -81,7 +81,7 @@ function loadQuestion() {
     questionGif.style.display = "block";
 
     let optionsContainer = document.getElementById("options-container");
-    optionsContainer.innerHTML = ""; // Clear previous buttons
+    optionsContainer.innerHTML = "";
 
     currentQ.options.forEach((option, index) => {
         let btn = document.createElement("button");
@@ -95,12 +95,13 @@ function nextQuestion(choiceIndex) {
     let currentQ = questions[currentQuestionIndex];
 
     Object.keys(currentQ.scores).forEach((persona) => {
-        scores[persona] += currentQ.scores[persona];
+        scores[persona] += currentQ.scores[persona] || 0;
     });
 
     currentQuestionIndex++;
     loadQuestion();
 }
+
 
 function showResult() {
     document.getElementById("quiz-container").style.display = "none";
