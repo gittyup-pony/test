@@ -1,7 +1,8 @@
 function startQuiz() {
     document.getElementById("intro-container").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
-    currentQuestionIndex = 0;
+    document.getElementById("result-container").style.display = "none"; 
+
 
     // ✅ Reset scores to 0
     scores = { 
@@ -90,7 +91,35 @@ function loadQuestion() {
 function nextQuestion(choiceIndex) {
     let currentQ = questions[currentQuestionIndex];
 
-    Object.keys(scores).forEach(persona => {
+    // ✅ Corrected scoring calculation
+    Object.keys(currentQ.scores).forEach(persona => {
+        scores[persona] += currentQ.scores[persona] || 0;
+    });
+
+    currentQuestionIndex++;
+
+    // ✅ Ensure last question transitions to result page
+    if (currentQuestionIndex >= questions.length) {
+        showResult();
+    } else {
+        loadQuestion();
+    }
+}
+
+function showResult() {
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("result-container").style.display = "block";
+
+    let highestPersona = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+    document.getElementById("result-title").innerText = highestPersona;
+    document.getElementById("result-description").innerText = `You are most like ${highestPersona}!`;
+    document.getElementById("restart-btn").style.display = "block";
+}
+
+function restartQuiz() {
+    startQuiz();
+}(persona => {
         scores[persona] += currentQ.scores[persona] || 0;
     });
 
