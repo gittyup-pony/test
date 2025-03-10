@@ -20,8 +20,8 @@ const questions = [
         options: ["Crash out, then start hauling ass to anywhere but here", "Shrug and consider yourself unlucky and start looking for shelter."],
         gif: "https://media.giphy.com/media/xT9DPldJHzZKtOnK8U/giphy.gif",
         scores: [
-            { guanYin: 1, nezha: 8, wukong: 4, buddha: 7, changEr: 6, erLang: 3, guanGong: 5, caiShenYe: 2 },
-            { guanYin: 2, nezha: 6, wukong: 5, buddha: 8, changEr: 7, erLang: 4, guanGong: 3, caiShenYe: 1 }
+            { guanYin: 10, nezha: 3, wukong: 7, buddha: 5, changEr: 2, erLang: 8, guanGong: 6, caiShenYe: 4 },
+            { guanYin: 6, nezha: 7, wukong: 3, buddha: 8, changEr: 5, erLang: 2, guanGong: 10, caiShenYe: 4 }
         ]
     },
     { 
@@ -29,8 +29,8 @@ const questions = [
         options: ["Put your fists up and dare these green slimeballs to come closer.", "Try to appear as non-threatening as possible."],
         gif: "https://media.giphy.com/media/l0HlNaQ6gWfllcjDO/giphy.gif",
         scores: [
-            { guanYin: 3, nezha: 7, wukong: 6, buddha: 5, changEr: 2, erLang: 8, guanGong: 4, caiShenYe: 1 },
-            { guanYin: 5, nezha: 8, wukong: 7, buddha: 6, changEr: 4, erLang: 3, guanGong: 2, caiShenYe: 1 }
+            { guanYin: 8, nezha: 5, wukong: 6, buddha: 10, changEr: 3, erLang: 7, guanGong: 4, caiShenYe: 2 },
+            { guanYin: 4, nezha: 10, wukong: 3, buddha: 6, changEr: 8, erLang: 5, guanGong: 2, caiShenYe: 7 }
         ]
     },
     { 
@@ -38,8 +38,8 @@ const questions = [
         options: ["F***, I must be dead. Why does heaven look like this?", "This is a hallucination, I must've hit my head pretty hard."],
         gif: "https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif",
         scores: [
-            { guanYin: 7, nezha: 3, wukong: 6, buddha: 5, changEr: 8, erLang: 4, guanGong: 2, caiShenYe: 1 },
-            { guanYin: 8, nezha: 5, wukong: 7, buddha: 4, changEr: 6, erLang: 3, guanGong: 1, caiShenYe: 2 }
+            { guanYin: 3, nezha: 10, wukong: 7, buddha: 4, changEr: 6, erLang: 2, guanGong: 8, caiShenYe: 5 },
+            { guanYin: 7, nezha: 4, wukong: 6, buddha: 8, changEr: 2, erLang: 10, guanGong: 3, caiShenYe: 5 }
         ]
     },
     { 
@@ -47,8 +47,8 @@ const questions = [
         options: ["Protest the war and take issue about the weird-looking comment.", "Agree and start boasting about how you can take on any fly."],
         gif: "https://media.giphy.com/media/Q81NcsY6YxK7jxnr4v/giphy.gif",
         scores: [
-            { guanYin: 5, nezha: 3, wukong: 7, buddha: 8, changEr: 2, erLang: 6, guanGong: 1, caiShenYe: 4 },
-            { guanYin: 6, nezha: 7, wukong: 8, buddha: 5, changEr: 3, erLang: 4, guanGong: 2, caiShenYe: 1 }
+            { guanYin: 10, nezha: 4, wukong: 3, buddha: 7, changEr: 8, erLang: 2, guanGong: 5, caiShenYe: 6 },
+            { guanYin: 5, nezha: 7, wukong: 6, buddha: 3, changEr: 2, erLang: 10, guanGong: 4, caiShenYe: 8 }
         ]
     },
     { 
@@ -56,8 +56,8 @@ const questions = [
         options: ["I wanna throw hands. Point me to the flies", "I can help in other ways. I know CPR."],
         gif: "https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif",
         scores: [
-            { guanYin: 6, nezha: 4, wukong: 1, buddha: 8, changEr: 2, erLang: 7, guanGong: 5, caiShenYe: 3 },
-            { guanYin: 8, nezha: 5, wukong: 3, buddha: 7, changEr: 4, erLang: 2, guanGong: 1, caiShenYe: 6 }
+            { guanYin: 6, nezha: 7, wukong: 10, buddha: 3, changEr: 2, erLang: 8, guanGong: 5, caiShenYe: 4 },
+            { guanYin: 4, nezha: 10, wukong: 3, buddha: 7, changEr: 8, erLang: 6, guanGong: 2, caiShenYe: 5 }
         ]
     },
     { 
@@ -65,8 +65,8 @@ const questions = [
         options: ["The insect repellant, so the flies keep away", "The electric fly swatter so you go on the offense."],
         gif: "https://media.giphy.com/media/5VKbvrjxpVJCM/giphy.gif",
         scores: [
-            { guanYin: 3, nezha: 7, wukong: 2, buddha: 5, changEr: 6, erLang: 8, guanGong: 1, caiShenYe: 4 },
-            { guanYin: 4, nezha: 8, wukong: 7, buddha: 6, changEr: 5, erLang: 2, guanGong: 3, caiShenYe: 1 }
+            { guanYin: 5, nezha: 3, wukong: 6, buddha: 7, changEr: 10, erLang: 8, guanGong: 2, caiShenYe: 4 },
+            { guanYin: 8, nezha: 6, wukong: 3, buddha: 2, changEr: 4, erLang: 10, guanGong: 5, caiShenYe: 7 }
         ]
     },
     { 
@@ -74,8 +74,8 @@ const questions = [
         options: ["A magic bag that always has what you need", "An umbrella that doubles as a sword when you need it."],
         gif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
         scores: [
-            { guanYin: 8, nezha: 6, wukong: 5, buddha: 2, changEr: 7, erLang: 3, guanGong: 1, caiShenYe: 4 },
-            { guanYin: 7, nezha: 5, wukong: 4, buddha: 3, changEr: 8, erLang: 2, guanGong: 1, caiShenYe: 6 }
+            { guanYin: 4, nezha: 10, wukong: 2, buddha: 6, changEr: 8, erLang: 7, guanGong: 3, caiShenYe: 5 },
+            { guanYin: 6, nezha: 2, wukong: 7, buddha: 5, changEr: 3, erLang: 10, guanGong: 8, caiShenYe: 4 }
         ]
     },
     { 
@@ -83,11 +83,12 @@ const questions = [
         options: ["Must have hit my head after falling and had a dream while knocked out.", "I drank too much at the frog party and I'm having a terrible hangover."],
         gif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
         scores: [
-            { guanYin: 4, nezha: 1, wukong: 8, buddha: 3, changEr: 5, erLang: 2, guanGong: 6, caiShenYe: 7 },
-            { guanYin: 5, nezha: 3, wukong: 7, buddha: 2, changEr: 6, erLang: 4, guanGong: 1, caiShenYe: 8 }
+            { guanYin: 7, nezha: 3, wukong: 6, buddha: 5, changEr: 8, erLang: 10, guanGong: 4, caiShenYe: 2 },
+            { guanYin: 5, nezha: 6, wukong: 3, buddha: 10, changEr: 4, erLang: 8, guanGong: 7, caiShenYe: 2 }
         ]
     }
 ];
+
 let scores = { guanYin: 0, nezha: 0, wukong: 0, buddha: 0, changEr: 0, erLang: 0, guanGong: 0, caiShenYe: 0 };
 let currentQuestionIndex = 0;
 
